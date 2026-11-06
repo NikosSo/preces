@@ -950,12 +950,161 @@
       .prayer-group > article:first-of-type {
         margin-top: 22px;
       }
+      /* Mobile floating index, opened by the apostolate crest. */
+      .mobile-index-toggle,
+      .mobile-index-backdrop,
+      .mobile-index-close {
+        display: none;
+      }
+      @media (max-width: 760px) {
+        body.mobile-index-open {
+          overflow: hidden;
+        }
+        .mobile-index-toggle {
+          position: fixed;
+          right: 18px;
+          bottom: calc(18px + env(safe-area-inset-bottom));
+          z-index: 40;
+          display: grid;
+          width: 68px;
+          height: 68px;
+          min-height: 0;
+          padding: 5px;
+          place-items: center;
+          overflow: hidden;
+          border: 2px solid var(--gold);
+          border-radius: 50%;
+          background: #fffaf0;
+          box-shadow: 0 8px 24px #172c4c4d;
+          transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+        .mobile-index-toggle:hover {
+          background: #fffaf0;
+          transform: translateY(-2px);
+          box-shadow: 0 11px 28px #172c4c5c;
+        }
+        .mobile-index-toggle img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        .mobile-index-backdrop {
+          position: fixed;
+          inset: 0;
+          z-index: 45;
+          display: block;
+          min-height: 0;
+          padding: 0;
+          border: 0;
+          border-radius: 0;
+          background: #07142699;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 220ms ease, visibility 220ms ease;
+        }
+        .mobile-index-backdrop:hover {
+          background: #07142699;
+        }
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: auto;
+          z-index: 50;
+          width: min(88vw, 360px);
+          height: 100dvh;
+          padding: 30px 24px calc(30px + env(safe-area-inset-bottom));
+          overflow-y: auto;
+          border-top: 5px solid var(--red);
+          border-right: 0;
+          border-bottom: 0;
+          border-left: 1px solid #cbb47f;
+          box-shadow: -12px 0 32px #07142638;
+          transform: translateX(105%);
+          visibility: hidden;
+          transition: transform 240ms ease, visibility 240ms ease;
+        }
+        .sidebar nav {
+          display: block;
+        }
+        .sidebar nav a {
+          min-height: 48px;
+          font-size: 14px;
+        }
+        .mobile-index-close {
+          position: absolute;
+          top: 17px;
+          right: 15px;
+          display: grid;
+          width: 42px;
+          min-height: 42px;
+          padding: 0;
+          place-items: center;
+          border: 0;
+          border-radius: 50%;
+          font-size: 25px;
+          line-height: 1;
+        }
+        .mobile-index-open .sidebar {
+          transform: translateX(0);
+          visibility: visible;
+        }
+        .mobile-index-open .mobile-index-backdrop {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      @media (max-width: 380px) {
+        .mobile-index-toggle {
+          right: 14px;
+          width: 62px;
+          height: 62px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .mobile-index-toggle,
+        .mobile-index-backdrop,
+        .sidebar {
+          transition: none;
+        }
+      }
+      @media print {
+        .mobile-index-toggle,
+        .mobile-index-backdrop,
+        .mobile-index-close {
+          display: none !important;
+        }
+      }
     </style>
   </head>
   <body>
+    <button
+      class="mobile-index-toggle"
+      type="button"
+      aria-label="Abrir indice de oracoes"
+      aria-controls="indice"
+      aria-expanded="false"
+    >
+      <img alt="" aria-hidden="true" />
+    </button>
+    <button
+      class="mobile-index-backdrop"
+      type="button"
+      aria-label="Fechar indice"
+      tabindex="-1"
+    ></button>
     <a class="skip" href="#conteudo">Ir ao conteúdo</a>
     <div class="layout">
       <aside class="sidebar" id="indice">
+        <button
+          class="mobile-index-close"
+          type="button"
+          aria-label="Fechar indice"
+        >
+          &times;
+        </button>
         <div class="sidebar-title">PRECES</div>
         <div class="brand">
           Apostolado Servo de Deus<br />Marcelo Henrique Câmara
@@ -3105,77 +3254,31 @@ Noli, Mater Verbi, verba mea despícere; sed áudi propítia et exáudi. Amen. T
         <footer>
           <h2>Fontes e edição</h2>
           <p>
-            A oração a São José pela santificação do trabalho é apresentada
-            apenas em português, com o texto fornecido para esta edição.
+            <i>Para os textos da presente edição, foram consultadas as fontes abaixo, 
+            o que não é contemplado por elas é de autoria própria:</i>
           </p>
           <p>
-            Para a bênção de Completas, foi adotada a fórmula da edição
-            brasileira, conferida em
-            <a
-              href="https://www.paulus.com.br/portal/wp-content/uploads/2020/05/LDH-Junho2020.pdf"
-              >Liturgia Diária das Horas, PAULUS, junho de 2020, p. 4</a
-            >, publicada com autorização da CNBB. As traduções próprias das
-            antífonas ainda não foram substituídas pelas traduções litúrgicas
-            brasileiras. “Dirigere et sanctificare” pertence à antiga Hora de
-            Prima; não é uma oração de Completas da atual Liturgia das Horas.
+            Alexandre Lopes Alessio (org.), <cite>Devocionário dos Santos Anjos</cite>, 1ª ed.,
+            Franco da Rocha, SP: Ed. do Autor, 2022, ISBN 978-65-00-52364-5
           </p>
           <p>
-            A oração de Santo Tomás antes dos estudos segue o texto latino
-            publicado no apêndice de
-            <a
-              href="https://www.vatican.va/content/pius-xi/la/encyclicals/documents/hf_p-xi_enc_19230629_studiorum-ducem.html"
-              >Studiorum ducem, de Pio XI</a
-            >, com tradução portuguesa própria. As fórmulas de oração mental são
-            apresentadas apenas em português, com o texto integral fornecido
-            para esta edição, conforme o
-            <a
-              href="https://opusdei.org/pt-br/prayers/section/?section1=198&amp;section2=38"
-              >Livro de Orações da Obra</a
-            >. A invocação latina da Visita ao Santíssimo segue o texto
-            fornecido para esta edição, com tradução portuguesa correspondente.
-            A comunhão espiritual apresentada pela Obra tem tradução latina
-            editorial.
-          </p>
-          <p>
-            Referências complementares:
-            <a
-              href="https://preces-latinae.org/thesaurus/Cotidiana/Dirigere.html"
-              >Dirigere et sanctificare</a
-            >
-            e
-            <a
-              href="https://www.ecclesiadei.it/wp-content/uploads/2020/03/Orationes.pdf"
-              >orações tradicionais, incluindo Noctem quietam</a
-            >. Os textos portugueses de Alma Redemptoris Mater, Ave Regina
-            caelorum e de algumas orações conclusivas são traduções próprias dos
-            textos latinos tradicionais. A tradução portuguesa do Memorare, bem
-            como os textos de Anima Christi, Sub tuum praesidium e Envio do Anjo
-            da Guarda à Santa Missa, segue as fontes fornecidas para esta edição.
-          </p>
-          <p>
-            Seleção de orações tradicionais organizada por ocasião, tendo como
-            referência o
-            <a href="https://opusdei.org/pt-br/prayers/?pb1=pt-br&amp;pb2=latin"
-              >Livro de Orações do Opus Dei, em português e latim</a
-            >. As referências de consulta estão reunidas nesta nota editorial.
-            As orações repetidas em diferentes momentos permitem a leitura
-            independente de cada seção.
-          </p>
-          <p>
-            As orações acrescentadas à seção “Devoção Eucarística” e a Oração
-            ao Sagrado Coração de Jesus foram conferidas em: Alexandre Lopes
-            Alessio (org.), <cite>Devocionário dos Santos Anjos</cite>, 1ª ed.,
-            Franco da Rocha, SP: Ed. do Autor, 2022, ISBN 978-65-00-52364-5; e
             Ali Rachad Ghnaim (org.), <cite>Seleta de orações</cite>, 2ª ed.,
             São Paulo: Cultor de Livros, 2022, 17ª reimpressão, 2023, ISBN
-            978-85-5638-248-1.
+            978-85-5638-248-1
           </p>
           <p>
-            As fórmulas portuguesas tradicionais têm grafia e pontuação
-            uniformizadas. Esta edição inclui traduções próprias e fontes
-            complementares para “Dirígere et sanctificáre”, da Hora de Prima, e
-            “Noctem quiétam”, de Completas. O uso de uma oração em determinada
-            seção é uma organização devocional desta edição.
+            Thesaurus Precum Latinarum, disponível em:
+            <a
+              href="https://preces-latinae.org/index.htm"
+              >Thesaurus Precum Latinarum</a
+            >
+          </p>
+          <p>
+            Livro de Orações - Opus Dei, disponível em:
+            <a
+            href="https://opusdei.org/pt-br/prayers/?pb1=pt-br&pb2=latin"
+            >Livro de Orações - Opus Dei</a
+            >
           </p>
           <p>
             Apostolado Servo de Deus Marcelo Henrique Câmara · PRECES<br />Leitura
@@ -3185,6 +3288,46 @@ Noli, Mater Verbi, verba mea despícere; sed áudi propítia et exáudi. Amen. T
       </main>
     </div>
     <script>
+      const mobileIndexToggle = document.querySelector(".mobile-index-toggle");
+      const mobileIndexBackdrop = document.querySelector(
+        ".mobile-index-backdrop",
+      );
+      const mobileIndexClose = document.querySelector(".mobile-index-close");
+      const mobileIndex = document.getElementById("indice");
+      const mobileIndexImage = mobileIndexToggle.querySelector("img");
+      const crestImage = document.querySelector(".crest img");
+
+      // Reuse the embedded crest without duplicating its large data URI.
+      mobileIndexImage.src = crestImage.currentSrc || crestImage.src;
+
+      function setMobileIndex(open, restoreFocus = true) {
+        document.body.classList.toggle("mobile-index-open", open);
+        mobileIndexToggle.setAttribute("aria-expanded", String(open));
+        mobileIndexBackdrop.tabIndex = open ? 0 : -1;
+        if (open) {
+          mobileIndexClose.focus();
+        } else if (restoreFocus) {
+          mobileIndexToggle.focus();
+        }
+      }
+
+      mobileIndexToggle.addEventListener("click", () => setMobileIndex(true));
+      mobileIndexClose.addEventListener("click", () => setMobileIndex(false));
+      mobileIndexBackdrop.addEventListener("click", () => setMobileIndex(false));
+      mobileIndex.querySelectorAll("nav a").forEach((link) =>
+        link.addEventListener("click", () => setMobileIndex(false, false)),
+      );
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && document.body.classList.contains("mobile-index-open")) {
+          setMobileIndex(false);
+        }
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 760 && document.body.classList.contains("mobile-index-open")) {
+          setMobileIndex(false, false);
+        }
+      });
+
       document.querySelectorAll(".prayer").forEach((prayer) => {
         const walker = document.createTreeWalker(prayer, NodeFilter.SHOW_TEXT);
         const textNodes = [];
