@@ -14,6 +14,13 @@
     <meta property="og:image"
           content="https://nikosso.github.io/preces/preview.png">
     <meta property="og:url">
+<!-- Ícone para iPhone e iPad -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- Configuração para Android -->
+<link rel="manifest" href="/site.webmanifest">
+<!-- Aparência da interface -->
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-title" content="PRECES · Apostolado Videre">
 <!-- Social media preview -->
     <title>PRECES · Apostolado Videre</title>
     <style>
@@ -89,7 +96,30 @@
       .sidebar h2 {
         font-size: 26px;
         font-weight: normal;
+        margin: 0;
+      }
+      .sidebar-heading {
+        display: flex;
+        align-items: center;
+        gap: 9px;
         margin: 36px 0 18px;
+      }
+      .home-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        color: var(--accent);
+        border-radius: 50%;
+        text-decoration: none;
+      }
+      .home-link:hover {
+        background: #e9e0cd;
+      }
+      .home-link svg {
+        width: 16px;
+        height: 16px;
       }
       .sidebar nav a {
         display: flex;
@@ -108,13 +138,6 @@
           10px Arial,
           sans-serif;
         color: var(--accent);
-      }
-      .sidebar nav small {
-        margin-left: auto;
-        color: var(--muted);
-        font:
-          11px Arial,
-          sans-serif;
       }
       .side-note {
         font:
@@ -547,6 +570,9 @@
           display: none;
         }
         .sidebar h2 {
+          margin: 0;
+        }
+        .sidebar-heading {
           margin: 16px 0 8px;
         }
         main {
@@ -969,7 +995,8 @@
         text-transform: uppercase;
       }
       .examination-toggle h4,
-      .meal-label {
+      .meal-label,
+      .prayer-subsection {
         margin: 18px 0 4px;
         font: 600 12px/1.6 Arial, sans-serif;
         letter-spacing: 0.08em;
@@ -991,6 +1018,31 @@
       }
       .prayer-group > article:first-of-type {
         margin-top: 22px;
+      }
+      .examination-content h4 {
+        margin: 30px 0 8px;
+        color: var(--blue);
+        font-size: 19px;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+      .examination-content h5 {
+        margin: 18px 0 6px;
+        color: var(--accent);
+        font: 600 13px/1.6 Arial, sans-serif;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .examination-content ul {
+        margin: 6px 0 18px;
+        padding-left: 1.35em;
+      }
+      .examination-content li.prayer {
+        margin: 5px 0;
+      }
+      .examination-content .instruction {
+        color: var(--muted);
+        font-style: italic;
       }
       .secret-prayer-dialog {
         width: min(920px, calc(100vw - 32px));
@@ -1261,7 +1313,7 @@
       }
     </style>
   </head>
-  <body>
+  <body id="topo">
     <button
       class="mobile-index-toggle"
       type="button"
@@ -1295,25 +1347,32 @@
           PRECES
         </button>
         <div class="brand">Apostolado Videre</div>
-        <h2>Index</h2>
+        <div class="sidebar-heading">
+          <h2>Index</h2>
+          <a class="home-link" href="#topo" aria-label="Voltar ao topo da página" title="Voltar ao topo">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M3 11.5 12 4l9 7.5M5.5 10v10h5v-6h3v6h5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
         <nav aria-label="Seções do livro">
           <a href="#essenciais"
-            ><span>01</span>Orações essenciais<small>11</small></a
-          ><a href="#manha"><span>02</span>Ao amanhecer<small>3</small></a
-          ><a href="#noite"><span>03</span>Ao anoitecer<small>4</small></a
+            ><span>01</span>Orações essenciais</a
+          ><a href="#manha"><span>02</span>Ao amanhecer</a
+          ><a href="#noite"><span>03</span>Ao anoitecer</a
           ><a href="#antes-missa"
-            ><span>04</span>Antes da Missa<small>3</small></a
+            ><span>04</span>Antes da Missa</a
           ><a href="#depois-missa"
-            ><span>05</span>Depois da Missa<small>3</small></a
+            ><span>05</span>Depois da Missa</a
           ><a href="#estudos"
-            ><span>06</span>Nos estudos e no trabalho<small>4</small></a
-          ><a href="#refeicoes"><span>07</span>À mesa<small>2</small></a
+            ><span>06</span>Nos estudos e no trabalho</a
+          ><a href="#refeicoes"><span>07</span>À mesa</a
           ><a href="#ocasioes"
-            ><span>08</span>Em diversas ocasiões<small>7</small></a
+            ><span>08</span>Em diversas ocasiões</a
           ><a href="#eucaristica"
-            ><span>09</span>Devoção Eucarística<small>8</small></a
-          ><a href="#nossa-senhora"
-            ><span>10</span>Nossa Senhora<small>5</small></a
+            ><span>09</span>Devoção Eucarística</a
+          ><a href="#exames-consciencia"
+            ><span>10</span>Exames de Consciência</a
           >
         </nav>
         <p class="side-note">
@@ -1342,8 +1401,7 @@
               presença de Deus.
             </p>
             <p class="meta">
-              10 seções &nbsp; / &nbsp; 46 orações &nbsp; / &nbsp; edição
-              bilíngue
+              10 seções &nbsp; / &nbsp; edição bilíngue
             </p>
             <p class="motto" lang="la">Omnia in lumine Christi</p>
           </div>
@@ -1837,6 +1895,66 @@ Et in Spíritum Sanctum, sanctam Ecclésiam cathólicam, sanctórum communiónem
             </div>
           </article>
           <article
+            id="nossa-senhora-5"
+            data-search="Memorare · Lembrai-vos Memoráre Todo o ano Oração de confiança na intercessão de Nossa Senhora, sem período litúrgico exclusivo. Lembrai-vos, ó piíssima Virgem Maria, de que nunca se ouviu dizer que algum daqueles que tenha recorrido à vossa clemência, implorado a vossa assistência, reclamando o vosso socorro, fosse por vós abandonado.
+Animado eu, pois, com igual confiança, a vós, Virgem das virgens, como Mãe, recorro, de vós me valho e gemendo sob o peso de meus pecados, me prostro aos vossos pés.
+Não desprezeis as minhas súplicas, ó mãe do Verbo de Deus humanado, mas dignai-vos de as ouvir propícia e de me alcançar o que vos rogo. Amém. Memoráre, o piíssima Virgo María, non esse audítum a sǽculo, quemquam ad tua curréntem præsídia, tua implorántem auxília, tua peténtem suffrágia, esse derelíctum.
+Ego tali animátus confidéntia, ad te, Virgo Vírginum, Mater, curro, ad te vénio, coram te gemens peccátor assísto.
+Noli, Mater Verbi, verba mea despícere; sed áudi propítia et exáudi. Amen. Tradução própria do texto latino tradicional."
+          >
+            <div class="prayer-head">
+              <h3>Memorare · Lembrai-vos</h3>
+              <a
+                class="permalink"
+                href="#nossa-senhora-5"
+                aria-label="Link para Memorare · Lembrai-vos"
+                >§</a
+              >
+            </div>
+            <p class="season">Todo o ano</p>
+            <p class="season-note">
+              Oração de confiança na intercessão de Nossa Senhora, sem período
+              litúrgico exclusivo.
+            </p>
+            <div class="parallel">
+              <div lang="pt-BR">
+                <div class="language">Português</div>
+                <p class="prayer">
+                  Lembrai-vos, ó piíssima Virgem Maria, de que nunca se ouviu
+                  dizer que algum daqueles que tenha recorrido à vossa
+                  clemência, implorado a vossa assistência, reclamando o vosso
+                  socorro, fosse por vós abandonado.
+                </p>
+                <p class="prayer">
+                  Animado eu, pois, com igual confiança, a vós, Virgem das
+                  virgens, como Mãe, recorro, de vós me valho e gemendo sob o
+                  peso de meus pecados, me prostro aos vossos pés.
+                </p>
+                <p class="prayer">
+                  Não desprezeis as minhas súplicas, ó mãe do Verbo de Deus
+                  humanado, mas dignai-vos de as ouvir propícia e de me alcançar
+                  o que vos rogo. Amém.
+                </p>
+              </div>
+              <div lang="la">
+                <div class="language">Latine · <span>Memoráre</span></div>
+                <p class="prayer">
+                  Memoráre, o piíssima Virgo María, non esse audítum a sǽculo,
+                  quemquam ad tua curréntem præsídia, tua implorántem auxília,
+                  tua peténtem suffrágia, esse derelíctum.
+                </p>
+                <p class="prayer">
+                  Ego tali animátus confidéntia, ad te, Virgo Vírginum, Mater,
+                  curro, ad te vénio, coram te gemens peccátor assísto.
+                </p>
+                <p class="prayer">
+                  Noli, Mater Verbi, verba mea despícere; sed áudi propítia et
+                  exáudi. Amen.
+                </p>
+              </div>
+            </div>
+          </article>
+          <article
             id="essenciais-8"
             data-search="Angelus · O Anjo do Senhor Ángelus Dómini Todo o ano, exceto o Tempo Pascal Tradicionalmente pela manhã, ao meio-dia e à tarde. No Tempo Pascal, reza-se o Regina Caeli. Em cada indicação “Ave-Maria”, reze a oração completa. ℣. O Anjo do Senhor anunciou a Maria.
 ℟. E ela concebeu do Espírito Santo.
@@ -1927,6 +2045,292 @@ Orémus. Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut qui, 
               </div>
             </div>
           </article>
+          <details class="prayer-group">
+            <summary>Antífonas marianas</summary>
+            <div class="marian-guide">
+              <p>
+                As quatro antífonas acompanham tradicionalmente o ano litúrgico.
+                As indicações abaixo orientam a devoção pessoal; os limites do uso
+                tradicional nem sempre coincidem com o início e o fim dos tempos
+                do calendário atual.
+              </p>
+              <table>
+                <caption>
+                  Antífonas e tempos litúrgicos
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Tempo</th>
+                    <th scope="col">Antífona</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Advento e Natal</td>
+                    <td><a href="#nossa-senhora-1">Alma Redemptoris Mater</a></td>
+                  </tr>
+                  <tr>
+                    <td>Quaresma</td>
+                    <td><a href="#nossa-senhora-2">Ave Regina caelorum</a></td>
+                  </tr>
+                  <tr>
+                    <td>Páscoa</td>
+                    <td><a href="#nossa-senhora-3">Regina Caeli</a></td>
+                  </tr>
+                  <tr>
+                    <td>Tempo Comum</td>
+                    <td><a href="#nossa-senhora-4">Salve Regina</a></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>
+                Para as primeiras semanas do Tempo Comum, veja as datas
+                tradicionais indicadas em Alma Redemptoris Mater e Ave Regina
+                caelorum.
+                <a href="https://www.olgchurch.org/sacred-music"
+                  >Referência sobre a associação das antífonas aos tempos
+                  litúrgicos</a
+                >.
+              </p>
+            </div>
+            <nav class="marian-index" aria-label="Antífonas marianas">
+              <a href="#nossa-senhora-1">Alma Redemptoris Mater</a
+              ><a href="#nossa-senhora-2">Ave Regina caelorum</a
+              ><a href="#nossa-senhora-3">Regina Caeli · Rainha do Céu</a
+              ><a href="#nossa-senhora-4">Salve Rainha</a>
+            </nav>
+            <article
+              id="nossa-senhora-1"
+              data-search="Alma Redemptoris Mater Alma Redemptóris Mater Advento e Natal No uso tradicional indicado pela fonte: do sábado anterior ao primeiro domingo do Advento até 1º de fevereiro; abrange também as primeiras semanas do Tempo Comum. Mãe bondosa do Redentor, que permaneceis porta aberta do céu e estrela do mar, socorrei o povo que cai e deseja levantar-se.
+  Vós que, para admiração da natureza, destes à luz o vosso santo Criador, Virgem antes e depois, acolhendo da boca de Gabriel aquela saudação, tende piedade dos pecadores. Alma Redemptóris Mater, quæ pérvia cæli porta manes, et stella maris, succúrre cadénti, súrgere qui curat, pópulo.
+  Tu quæ genuísti, natúra miránte, tuum sanctum Genitórem, Virgo prius ac postérius, Gabriélis ab ore sumens illud Ave, peccatórum miserére. Tradução própria do texto latino tradicional."
+            >
+              <div class="prayer-head">
+                <h3>Alma Redemptoris Mater</h3>
+                <a
+                  class="permalink"
+                  href="#nossa-senhora-1"
+                  aria-label="Link para Alma Redemptoris Mater"
+                  >§</a
+                >
+              </div>
+              <p class="season">Advento e Natal</p>
+              <p class="season-note">
+                No uso tradicional indicado pela fonte: do sábado anterior ao
+                primeiro domingo do Advento até 1º de fevereiro; abrange também as
+                primeiras semanas do Tempo Comum.
+              </p>
+              <div class="parallel">
+                <div lang="pt-BR">
+                  <div class="language">Português</div>
+                  <p class="prayer">
+                    Mãe bondosa do Redentor, que permaneceis porta aberta do céu e
+                    estrela do mar, socorrei o povo que cai e deseja levantar-se.
+                  </p>
+                  <p class="prayer">
+                    Vós que, para admiração da natureza, destes à luz o vosso
+                    santo Criador, Virgem antes e depois, acolhendo da boca de
+                    Gabriel aquela saudação, tende piedade dos pecadores.
+                  </p>
+                </div>
+                <div lang="la">
+                  <div class="language">
+                    Latine · <span>Alma Redemptóris Mater</span>
+                  </div>
+                  <p class="prayer">
+                    Alma Redemptóris Mater, quæ pérvia cæli porta manes, et stella
+                    maris, succúrre cadénti, súrgere qui curat, pópulo.
+                  </p>
+                  <p class="prayer">
+                    Tu quæ genuísti, natúra miránte, tuum sanctum Genitórem, Virgo
+                    prius ac postérius, Gabriélis ab ore sumens illud Ave,
+                    peccatórum miserére.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article
+              id="nossa-senhora-2"
+              data-search="Ave Regina caelorum Ave, Regína cælórum Quaresma No uso tradicional indicado pela fonte: de 2 de fevereiro até a Quarta-feira Santa; inclui parte do Tempo Comum anterior à Quaresma. Salve, Rainha dos céus; salve, Senhora dos anjos; salve, raiz, salve, porta, da qual nasceu para o mundo a luz.
+  Alegrai-vos, Virgem gloriosa, bela acima de todas; nós vos saudamos, ó formosíssima, e pedi a Cristo por nós. Ave, Regína cælórum, ave, Dómina Angelórum, salve, radix, salve, porta, ex qua mundo lux est orta.
+  Gaude, Virgo gloriósa, super omnes speciósa; vale, o valde decóra, et pro nobis Christum exóra. Tradução própria do texto latino tradicional."
+            >
+              <div class="prayer-head">
+                <h3>Ave Regina caelorum</h3>
+                <a
+                  class="permalink"
+                  href="#nossa-senhora-2"
+                  aria-label="Link para Ave Regina caelorum"
+                  >§</a
+                >
+              </div>
+              <p class="season">Quaresma</p>
+              <p class="season-note">
+                No uso tradicional indicado pela fonte: de 2 de fevereiro até a
+                Quarta-feira Santa; inclui parte do Tempo Comum anterior à
+                Quaresma.
+              </p>
+              <div class="parallel">
+                <div lang="pt-BR">
+                  <div class="language">Português</div>
+                  <p class="prayer">
+                    Salve, Rainha dos céus; salve, Senhora dos anjos; salve, raiz,
+                    salve, porta, da qual nasceu para o mundo a luz.
+                  </p>
+                  <p class="prayer">
+                    Alegrai-vos, Virgem gloriosa, bela acima de todas; nós vos
+                    saudamos, ó formosíssima, e pedi a Cristo por nós.
+                  </p>
+                </div>
+                <div lang="la">
+                  <div class="language">
+                    Latine · <span>Ave, Regína cælórum</span>
+                  </div>
+                  <p class="prayer">
+                    Ave, Regína cælórum, ave, Dómina Angelórum, salve, radix,
+                    salve, porta, ex qua mundo lux est orta.
+                  </p>
+                  <p class="prayer">
+                    Gaude, Virgo gloriósa, super omnes speciósa; vale, o valde
+                    decóra, et pro nobis Christum exóra.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article
+              id="nossa-senhora-3"
+              data-search="Regina Caeli · Rainha do Céu Regína cæli Páscoa · Tempo Pascal Da Páscoa a Pentecostes. Substitui o Angelus durante o Tempo Pascal. A antífona é apresentada abaixo com o versículo e a oração usados nessa devoção. Rainha do Céu, alegrai-vos, aleluia.
+  Porque aquele que merecestes trazer em vosso seio, aleluia,
+  ressuscitou como disse, aleluia.
+  Rogai a Deus por nós, aleluia.
+  ℣. Exultai e alegrai-vos, ó Virgem Maria, aleluia.
+  ℟. Porque o Senhor ressuscitou verdadeiramente, aleluia.
+  Oremos. Ó Deus, que pela ressurreição do vosso Filho, nosso Senhor Jesus Cristo, alegrastes o mundo, concedei-nos, por sua Mãe, a Virgem Maria, alcançar as alegrias da vida eterna. Por Cristo, nosso Senhor. Amém. Regína cæli, lætáre, allelúia.
+  Quia quem meruísti portáre, allelúia,
+  resurréxit, sicut dixit, allelúia.
+  Ora pro nobis Deum, allelúia.
+  ℣. Gaude et lætáre, Virgo María, allelúia.
+  ℟. Quia surréxit Dóminus vere, allelúia.
+  Orémus. Deus, qui per resurrectiónem Fílii tui Dómini nostri Iesu Christi mundum lætificáre dignátus es, præsta, quǽsumus, ut per eius Genetrícem Vírginem Maríam perpétuæ capiámus gáudia vitæ. Per Christum Dóminum nostrum. Amen. Português com tradução própria da oração conclusiva."
+            >
+              <div class="prayer-head">
+                <h3>Regina Caeli · Rainha do Céu</h3>
+                <a
+                  class="permalink"
+                  href="#nossa-senhora-3"
+                  aria-label="Link para Regina Caeli · Rainha do Céu"
+                  >§</a
+                >
+              </div>
+              <p class="season">Páscoa · Tempo Pascal</p>
+              <p class="season-note">
+                Da Páscoa a Pentecostes. Substitui o Angelus durante o Tempo
+                Pascal. A antífona é apresentada abaixo com o versículo e a oração
+                usados nessa devoção.
+              </p>
+              <div class="parallel">
+                <div lang="pt-BR">
+                  <div class="language">Português</div>
+                  <p class="prayer">Rainha do Céu, alegrai-vos, aleluia.</p>
+                  <p class="prayer">
+                    Porque aquele que merecestes trazer em vosso seio, aleluia,
+                  </p>
+                  <p class="prayer">ressuscitou como disse, aleluia.</p>
+                  <p class="prayer">Rogai a Deus por nós, aleluia.</p>
+                  <p class="prayer">
+                    ℣. Exultai e alegrai-vos, ó Virgem Maria, aleluia.
+                  </p>
+                  <p class="prayer">
+                    ℟. Porque o Senhor ressuscitou verdadeiramente, aleluia.
+                  </p>
+                  <p class="prayer">
+                    Oremos. Ó Deus, que pela ressurreição do vosso Filho, nosso
+                    Senhor Jesus Cristo, alegrastes o mundo, concedei-nos, por sua
+                    Mãe, a Virgem Maria, alcançar as alegrias da vida eterna. Por
+                    Cristo, nosso Senhor. Amém.
+                  </p>
+                </div>
+                <div lang="la">
+                  <div class="language">Latine · <span>Regína cæli</span></div>
+                  <p class="prayer">Regína cæli, lætáre, allelúia.</p>
+                  <p class="prayer">Quia quem meruísti portáre, allelúia,</p>
+                  <p class="prayer">resurréxit, sicut dixit, allelúia.</p>
+                  <p class="prayer">Ora pro nobis Deum, allelúia.</p>
+                  <p class="prayer">℣. Gaude et lætáre, Virgo María, allelúia.</p>
+                  <p class="prayer">℟. Quia surréxit Dóminus vere, allelúia.</p>
+                  <p class="prayer">
+                    Orémus. Deus, qui per resurrectiónem Fílii tui Dómini nostri
+                    Iesu Christi mundum lætificáre dignátus es, præsta, quǽsumus,
+                    ut per eius Genetrícem Vírginem Maríam perpétuæ capiámus
+                    gáudia vitæ. Per Christum Dóminum nostrum. Amen.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article
+              id="nossa-senhora-4"
+              data-search="Salve Rainha Salve, Regína Tempo Comum Especialmente no Tempo Comum após Pentecostes e até o Advento. Pode também ser rezada em outras ocasiões de devoção mariana. Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve!
+  A vós bradamos, os degredados filhos de Eva; a vós suspiramos, gemendo e chorando neste vale de lágrimas.
+  Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei; e, depois deste desterro, mostrai-nos Jesus, bendito fruto do vosso ventre.
+  Ó clemente, ó piedosa, ó doce sempre Virgem Maria! Salve, Regína, Mater misericórdiæ, vita, dulcédo et spes nostra, salve.
+  Ad te clamámus, éxsules fílii Hevæ. Ad te suspirámus geméntes et flentes in hac lacrimárum valle.
+  Éia ergo, advocáta nostra, illos tuos misericórdes óculos ad nos convérte. Et Iesum benedíctum fructum ventris tui, nobis, post hoc exsílium, osténde.
+  O clemens, o pia, o dulcis Virgo María! Fórmula tradicional; texto da antífona."
+            >
+              <div class="prayer-head">
+                <h3>Salve Rainha</h3>
+                <a
+                  class="permalink"
+                  href="#nossa-senhora-4"
+                  aria-label="Link para Salve Rainha"
+                  >§</a
+                >
+              </div>
+              <p class="season">Tempo Comum</p>
+              <p class="season-note">
+                Especialmente no Tempo Comum após Pentecostes e até o Advento.
+                Pode também ser rezada em outras ocasiões de devoção mariana.
+              </p>
+              <div class="parallel">
+                <div lang="pt-BR">
+                  <div class="language">Português</div>
+                  <p class="prayer">
+                    Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança
+                    nossa, salve!
+                  </p>
+                  <p class="prayer">
+                    A vós bradamos, os degredados filhos de Eva; a vós suspiramos,
+                    gemendo e chorando neste vale de lágrimas.
+                  </p>
+                  <p class="prayer">
+                    Eia, pois, advogada nossa, esses vossos olhos misericordiosos
+                    a nós volvei; e, depois deste desterro, mostrai-nos Jesus,
+                    bendito fruto do vosso ventre.
+                  </p>
+                  <p class="prayer">
+                    Ó clemente, ó piedosa, ó doce sempre Virgem Maria!
+                  </p>
+                </div>
+                <div lang="la">
+                  <div class="language">Latine · <span>Salve, Regína</span></div>
+                  <p class="prayer">
+                    Salve, Regína, Mater misericórdiæ, vita, dulcédo et spes
+                    nostra, salve.
+                  </p>
+                  <p class="prayer">
+                    Ad te clamámus, éxsules fílii Hevæ. Ad te suspirámus geméntes
+                    et flentes in hac lacrimárum valle.
+                  </p>
+                  <p class="prayer">
+                    Éia ergo, advocáta nostra, illos tuos misericórdes óculos ad
+                    nos convérte. Et Iesum benedíctum fructum ventris tui, nobis,
+                    post hoc exsílium, osténde.
+                  </p>
+                  <p class="prayer">O clemens, o pia, o dulcis Virgo María!</p>
+                </div>
+              </div>
+            </article>
+          </details>
         </section>
         <section id="manha" class="chapter">
           <header class="chapter-head">
@@ -2751,7 +3155,7 @@ Ingressum instruas, progressum dirigas, egressum compleas: Tu qui es verus Deus 
           </header>
           <article
             id="refeicoes-1"
-            data-search="Antes das refeições Benedíctio mensæ Abençoai-nos, Senhor, a nós e a estes dons que da vossa liberalidade recebemos. Por Cristo, Senhor nosso. Amém.
+            data-search="Bênção antes das refeições Antes das refeições Benedíctio mensæ Abençoai-nos, Senhor, a nós e a estes dons que da vossa liberalidade recebemos. Por Cristo, Senhor nosso. Amém.
 Antes do almoço:
 Que o Rei da eterna glória nos faça participantes da mesa celestial. Amém.
 Antes do jantar:
@@ -2759,14 +3163,19 @@ Que o Rei da eterna glória nos conduza à ceia da vida eterna. Amém. Bénedic,
 Ante prándium:
 Mensæ cæléstis partícipes fáciat nos, Rex ætérnæ glóriæ. Amen.
 Ante cenam:
-Ad cenam vitæ ætérnæ perdúcat nos, Rex ætérnæ glóriæ. Amen."
+ Ad cenam vitæ ætérnæ perdúcat nos, Rex ætérnæ glóriæ. Amen.
+ Depois do almoço e do jantar Post prándium vel cenam Nós vos damos graças, Deus onipotente, por todos os vossos benefícios, vós que viveis e reinais por todos os séculos dos séculos. Amém.
+ ℣. Que o Senhor nos dê a sua paz.
+ ℟. E a vida eterna. Amém. Ágimus tibi grátias, omnípotens Deus, pro univérsis benefíciis tuis, qui vivis et regnas in sǽcula sæculórum. Amen.
+ ℣. Deus det nobis suam pacem.
+ ℟. Et vitam ætérnam. Amen."
           >
             <div class="prayer-head">
-              <h3>Bênção antes das refeições</h3>
+              <h3>Bênção dos alimentos</h3>
               <a
                 class="permalink"
                 href="#refeicoes-1"
-                aria-label="Link para Antes das refeições"
+                aria-label="Link para Bênção dos alimentos"
                 >§</a
               >
             </div>
@@ -2787,6 +3196,15 @@ Ad cenam vitæ ætérnæ perdúcat nos, Rex ætérnæ glóriæ. Amen."
                   Que o Rei da eterna glória nos conduza à ceia da vida eterna.
                   Amém.
                 </p>
+                <h4 class="prayer-subsection">Depois do almoço e do jantar</h4>
+                <span id="refeicoes-2" aria-hidden="true"></span>
+                <p class="prayer">
+                  Nós vos damos graças, Deus onipotente, por todos os vossos
+                  benefícios, vós que viveis e reinais por todos os séculos dos
+                  séculos. Amém.
+                </p>
+                <p class="prayer">℣. Que o Senhor nos dê a sua paz.</p>
+                <p class="prayer">℟. E a vida eterna. Amém.</p>
               </div>
               <div lang="la">
                 <div class="language">
@@ -2804,41 +3222,7 @@ Ad cenam vitæ ætérnæ perdúcat nos, Rex ætérnæ glóriæ. Amen."
                 <p class="prayer">
                   Ad cenam vitæ ætérnæ perdúcat nos, Rex ætérnæ glóriæ. Amen.
                 </p>
-              </div>
-            </div>
-          </article>
-          <article
-            id="refeicoes-2"
-            data-search="Depois do almoço e do jantar Post prándium vel cenam Nós vos damos graças, Deus onipotente, por todos os vossos benefícios, vós que viveis e reinais por todos os séculos dos séculos. Amém.
-℣. Que o Senhor nos dê a sua paz.
-℟. E a vida eterna. Amém. Ágimus tibi grátias, omnípotens Deus, pro univérsis benefíciis tuis, qui vivis et regnas in sǽcula sæculórum. Amen.
-℣. Deus det nobis suam pacem.
-℟. Et vitam ætérnam. Amen."
-          >
-            <div class="prayer-head">
-              <h3>Depois do almoço e do jantar</h3>
-              <a
-                class="permalink"
-                href="#refeicoes-2"
-                aria-label="Link para Depois do almoço e do jantar"
-                >§</a
-              >
-            </div>
-            <div class="parallel">
-              <div lang="pt-BR">
-                <div class="language">Português</div>
-                <p class="prayer">
-                  Nós vos damos graças, Deus onipotente, por todos os vossos
-                  benefícios, vós que viveis e reinais por todos os séculos dos
-                  séculos. Amém.
-                </p>
-                <p class="prayer">℣. Que o Senhor nos dê a sua paz.</p>
-                <p class="prayer">℟. E a vida eterna. Amém.</p>
-              </div>
-              <div lang="la">
-                <div class="language">
-                  Latine · <span>Post prándium vel cenam</span>
-                </div>
+                <h4 class="prayer-subsection">Post prándium vel cenam</h4>
                 <p class="prayer">
                   Ágimus tibi grátias, omnípotens Deus, pro univérsis benefíciis
                   tuis, qui vivis et regnas in sǽcula sæculórum. Amen.
@@ -2998,20 +3382,21 @@ Ad cenam vitæ ætérnæ perdúcat nos, Rex ætérnæ glóriæ. Amen."
           </article>
           <article
             id="ocasioes-4"
-            data-search="Oração mental · ao começar Pelo sinal ✠ da Santa Cruz, livrai-nos Deus, ✠ Nosso Senhor, dos nossos ✠ inimigos. Em nome do Pai, e do Filho, ✠ e do Espírito Santo. Amém. Meu Senhor e meu Deus, creio firmemente que estás aqui, que me vês, que me ouves. Adoro-Te com profunda reverência. Peço-Te perdão dos meus pecados e graça para fazer com fruto este tempo de oração. Minha Mãe Imaculada, São José, meu Pai e Senhor, meu Anjo da Guarda, intercedei por mim."
+            data-search="Oração mental · ao começar · ao terminar Pelo sinal ✠ da Santa Cruz, livrai-nos Deus, ✠ Nosso Senhor, dos nossos ✠ inimigos. Em nome do Pai, e do Filho, ✠ e do Espírito Santo. Amém. Meu Senhor e meu Deus, creio firmemente que estás aqui, que me vês, que me ouves. Adoro-Te com profunda reverência. Peço-Te perdão dos meus pecados e graça para fazer com fruto este tempo de oração. Minha Mãe Imaculada, São José, meu Pai e Senhor, meu Anjo da Guarda, intercedei por mim. Dou-Te graças, meu Deus, pelos bons propósitos, afetos e inspirações que me comunicastes nesta meditação; peço-Te ajuda para os pôr em prática."
           >
             <div class="prayer-head">
-              <h3>Oração mental · ao começar</h3>
+              <h3>Oração mental</h3>
               <a
                 class="permalink"
                 href="#ocasioes-4"
-                aria-label="Link para Oração mental · ao começar"
+                aria-label="Link para Oração mental"
                 >§</a
               >
             </div>
             <div class="parallel portuguese-only">
               <div lang="pt-BR">
                 <div class="language">Português</div>
+                <h4 class="prayer-subsection">Ao começar</h4>
                 <p class="prayer">
                   Pelo sinal ✠ da Santa Cruz, livrai-nos Deus, ✠ Nosso Senhor,
                   dos nossos ✠ inimigos. Em nome do Pai, e do Filho, ✠ e do
@@ -3024,25 +3409,8 @@ Ad cenam vitæ ætérnæ perdúcat nos, Rex ætérnæ glóriæ. Amen."
                   tempo de oração. Minha Mãe Imaculada, São José, meu Pai e
                   Senhor, meu Anjo da Guarda, intercedei por mim.
                 </p>
-              </div>
-            </div>
-          </article>
-          <article
-            id="ocasioes-5"
-            data-search="Oração mental · ao terminar Dou-Te graças, meu Deus, pelos bons propósitos, afetos e inspirações que me comunicastes nesta meditação; peço-Te ajuda para os pôr em prática. Minha Mãe Imaculada, São José, meu Pai e Senhor, meu Anjo da Guarda, intercedei por mim."
-          >
-            <div class="prayer-head">
-              <h3>Oração mental · ao terminar</h3>
-              <a
-                class="permalink"
-                href="#ocasioes-5"
-                aria-label="Link para Oração mental · ao terminar"
-                >§</a
-              >
-            </div>
-            <div class="parallel portuguese-only">
-              <div lang="pt-BR">
-                <div class="language">Português</div>
+                <span id="ocasioes-5" aria-hidden="true"></span>
+                <h4 class="prayer-subsection">Ao terminar</h4>
                 <p class="prayer">
                   Dou-Te graças, meu Deus, pelos bons propósitos, afetos e
                   inspirações que me comunicastes nesta meditação; peço-Te ajuda
@@ -3231,358 +3599,283 @@ Ad cenam vitæ ætérnæ perdúcat nos, Rex ætérnæ glóriæ. Amen."
             </article>
           </details>
         </section>
-        <section id="nossa-senhora" class="chapter">
+        <section id="exames-consciencia" class="chapter">
           <header class="chapter-head">
             <span class="number">10</span>
             <div>
-              <h2>Nossa Senhora</h2>
-              <p>Antífonas marianas e Memorare.</p>
+              <h2>Exames de Consciência</h2>
+              <p>Preparação para uma confissão sincera e contrita.</p>
             </div>
           </header>
-          <div class="marian-guide">
-            <p>
-              As quatro antífonas acompanham tradicionalmente o ano litúrgico.
-              As indicações abaixo orientam a devoção pessoal; os limites do uso
-              tradicional nem sempre coincidem com o início e o fim dos tempos
-              do calendário atual.
-            </p>
-            <table>
-              <caption>
-                Antífonas e tempos litúrgicos
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Tempo</th>
-                  <th scope="col">Antífona</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Advento e Natal</td>
-                  <td><a href="#nossa-senhora-1">Alma Redemptoris Mater</a></td>
-                </tr>
-                <tr>
-                  <td>Quaresma</td>
-                  <td><a href="#nossa-senhora-2">Ave Regina caelorum</a></td>
-                </tr>
-                <tr>
-                  <td>Páscoa</td>
-                  <td><a href="#nossa-senhora-3">Regina Caeli</a></td>
-                </tr>
-                <tr>
-                  <td>Tempo Comum</td>
-                  <td><a href="#nossa-senhora-4">Salve Regina</a></td>
-                </tr>
-              </tbody>
-            </table>
-            <p>
-              Para as primeiras semanas do Tempo Comum, veja as datas
-              tradicionais indicadas em Alma Redemptoris Mater e Ave Regina
-              caelorum.
-              <a href="https://www.olgchurch.org/sacred-music"
-                >Referência sobre a associação das antífonas aos tempos
-                litúrgicos</a
-              >.
-            </p>
-          </div>
-          <nav class="marian-index" aria-label="Orações de Nossa Senhora">
-            <a href="#nossa-senhora-1">Alma Redemptoris Mater</a
-            ><a href="#nossa-senhora-2">Ave Regina caelorum</a
-            ><a href="#nossa-senhora-3">Regina Caeli · Rainha do Céu</a
-            ><a href="#nossa-senhora-4">Salve Rainha</a
-            ><a href="#nossa-senhora-5">Memorare · Lembrai-vos</a>
-          </nav>
-          <article
-            id="nossa-senhora-1"
-            data-search="Alma Redemptoris Mater Alma Redemptóris Mater Advento e Natal No uso tradicional indicado pela fonte: do sábado anterior ao primeiro domingo do Advento até 1º de fevereiro; abrange também as primeiras semanas do Tempo Comum. Mãe bondosa do Redentor, que permaneceis porta aberta do céu e estrela do mar, socorrei o povo que cai e deseja levantar-se.
-Vós que, para admiração da natureza, destes à luz o vosso santo Criador, Virgem antes e depois, acolhendo da boca de Gabriel aquela saudação, tende piedade dos pecadores. Alma Redemptóris Mater, quæ pérvia cæli porta manes, et stella maris, succúrre cadénti, súrgere qui curat, pópulo.
-Tu quæ genuísti, natúra miránte, tuum sanctum Genitórem, Virgo prius ac postérius, Gabriélis ab ore sumens illud Ave, peccatórum miserére. Tradução própria do texto latino tradicional."
-          >
-            <div class="prayer-head">
-              <h3>Alma Redemptoris Mater</h3>
-              <a
-                class="permalink"
-                href="#nossa-senhora-1"
-                aria-label="Link para Alma Redemptoris Mater"
-                >§</a
-              >
-            </div>
-            <p class="season">Advento e Natal</p>
-            <p class="season-note">
-              No uso tradicional indicado pela fonte: do sábado anterior ao
-              primeiro domingo do Advento até 1º de fevereiro; abrange também as
-              primeiras semanas do Tempo Comum.
-            </p>
-            <div class="parallel">
-              <div lang="pt-BR">
-                <div class="language">Português</div>
-                <p class="prayer">
-                  Mãe bondosa do Redentor, que permaneceis porta aberta do céu e
-                  estrela do mar, socorrei o povo que cai e deseja levantar-se.
-                </p>
-                <p class="prayer">
-                  Vós que, para admiração da natureza, destes à luz o vosso
-                  santo Criador, Virgem antes e depois, acolhendo da boca de
-                  Gabriel aquela saudação, tende piedade dos pecadores.
-                </p>
+          <details class="prayer-group">
+            <summary>Para confissão geral</summary>
+            <article
+              id="exame-confissao-geral"
+              data-search="Exame de consciência para confissão geral preparação confissão mandamentos pecados ato de contrição modo de confessar"
+            >
+              <div class="prayer-head">
+                <h3>Exame de consciência para confissão geral</h3>
+                <a
+                  class="permalink"
+                  href="#exame-confissao-geral"
+                  aria-label="Link para Exame de consciência para confissão geral"
+                  >§</a
+                >
               </div>
-              <div lang="la">
-                <div class="language">
-                  Latine · <span>Alma Redemptóris Mater</span>
+              <div class="parallel portuguese-only">
+                <div lang="pt-BR" class="examination-content">
+                  <h4>Preparação para a confissão</h4>
+                  <p class="prayer instruction">
+                    A fim de bem se preparar para a Confissão, cumpre retirar-se
+                    à parte, quer no seu oratório, pôr-se seriamente na presença
+                    de Deus e fazer o ato seguinte:
+                  </p>
+
+                  <h5>Antes do exame de consciência</h5>
+                  <p class="prayer">
+                    Meu Deus e Senhor, eu me preparo para receber o santo
+                    Sacramento da Penitência. Iluminai o meu espírito, a fim de
+                    que eu conheça claramente o número e a gravidade dos meus
+                    pecados, deles me arrependa, e os confesse ao vosso ministro
+                    com verdadeira dor e firme propósito de nunca mais Vos
+                    tornar a ofender. Amém.
+                  </p>
+
+                  <h5>Oração para antes da confissão</h5>
+                  <p class="prayer">
+                    Minha Senhora e minha Mãe, dai-me a graça de conhecer meus
+                    pecados em todo o seu tamanho, em toda a sua gravidade, em
+                    toda a sua malícia, e dai-me inquebrantável ódio a esses
+                    pecados, para que, odiando-os assim, eu possa vencê-los.
+                  </p>
+                  <p class="prayer">
+                    Dai-me aquela forma perfeitíssima de arrependimento que Vós
+                    quereis de mim, aquela compunção de Davi penitente, aquele
+                    seu lamento sereno e cheio de confiança, aquela sua dor
+                    pungente. Fazei, ó minha Mãe, com que meus pecados estejam
+                    sempre diante de mim, e dai-me aquele coração contrito e
+                    humilhado que Vós não desprezais.
+                  </p>
+
+                  <h4>Primeiro Mandamento</h4>
+                  <h5>Fé</h5>
+                  <ul>
+                    <li class="prayer">Não tem faltado habitualmente aos sermões?</li>
+                    <li class="prayer">Não tem consentido voluntariamente em dúvidas contra a fé?</li>
+                    <li class="prayer">Não as tem provocado em outros?</li>
+                    <li class="prayer">Não tem, sem razão plausível, ou sem licença da autoridade eclesiástica, lido, conservado ou propagado livros e escritos (jornais e revistas) contra a religião? Livros de outras religiões?</li>
+                    <li class="prayer">Não tem falado contra a religião? Não tem criticado as pessoas ou costumes eclesiásticos? Não tem tomado parte em semelhantes conversas, quando outros as travam? Tem tido vergonha da religião? Mostrado respeito humano? Agido contra a consciência? Frequentado colégios de outras religiões ou mandado os filhos a tais colégios?</li>
+                  </ul>
+                  <h5>Esperança</h5>
+                  <ul>
+                    <li class="prayer">Tem duvidado conscientemente da misericórdia divina, consentindo voluntariamente em pensamentos de desespero? Tem manifestado esses pensamentos ou dúvidas? Tem cometido pecados em vista da facilidade da confissão, ou presumindo a misericórdia divina?</li>
+                  </ul>
+                  <h5>Caridade</h5>
+                  <ul>
+                    <li class="prayer">Tem alimentado deliberadamente em seu coração o ódio ou desprezo por Deus e as coisas divinas?</li>
+                    <li class="prayer">Tem murmurado contra Deus? Contra as disposições da Divina Providência?</li>
+                  </ul>
+                  <h5>Oração</h5>
+                  <ul>
+                    <li class="prayer">Tem omitido suas orações cotidianas por um tempo considerável?</li>
+                  </ul>
+                  <h5>Superstição</h5>
+                  <ul>
+                    <li class="prayer">Tem-se entregue a práticas supersticiosas: cartomancias, sortilégios etc.? Foi por convicção ou leviandade? Tem participado de atos de outras religiões?</li>
+                  </ul>
+                  <h5>Sacrilégios</h5>
+                  <ul>
+                    <li class="prayer">Tem recebido sacrilegamente algum sacramento? Tem abusado das coisas sagradas? De propósito? Faltado, gravemente, ao respeito a pessoas consagradas a Deus?</li>
+                  </ul>
+
+                  <h4>Segundo Mandamento</h4>
+                  <ul>
+                    <li class="prayer">Tem pronunciado o nome de Deus ou dos Santos com ira? Por costume? Tem empregado as palavras da Sagrada Escritura em pilhérias inconvenientes? Tem ridicularizado passagens da Escritura?</li>
+                    <li class="prayer">Tem pensado ou falado com desprezo de Deus, dos Santos, das coisas sagradas (blasfêmias)?</li>
+                    <li class="prayer">Tem proferido maldições contra Deus, os Santos, as coisas sagradas (blasfêmia)?</li>
+                    <li class="prayer">Tem lançado imprecações ou maldições contra alguém, abusando para este fim dos nomes de Deus ou dos Santos (imprecações, blasfêmias)?</li>
+                  </ul>
+                  <h5>Juramentos</h5>
+                  <ul>
+                    <li class="prayer">Tem jurado falso? Tem jurado, duvidando da verdade do que afirmava? Foi em juízo? Tem aconselhado a outros que o fizessem?</li>
+                    <li class="prayer">Tem com isso causado dano ao próximo?</li>
+                    <li class="prayer">Tem sido infiel a alguma promessa jurada que pudesse ter cumprido?</li>
+                  </ul>
+                  <h5>Votos ou promessas</h5>
+                  <ul>
+                    <li class="prayer">Tem violado votos ou promessas? Por completo ou em parte? Tem adiado, notavelmente e sem motivo, o cumprimento deles?</li>
+                  </ul>
+
+                  <h4>Terceiro Mandamento</h4>
+                  <h5>Assistência à Missa</h5>
+                  <ul>
+                    <li class="prayer">Tem deixado de ouvir Missa, sem motivo legítimo, nos domingos e dias santos de guarda? Tem chegado tarde por sua culpa? Tem-se retirado cedo sem motivo?</li>
+                    <li class="prayer">Tem, sem razão legítima, impedido outros (empregados) de ouvir Missa?</li>
+                    <li class="prayer">Tem tido distrações voluntárias? Tem faltado ao respeito externo durante o Sagrado Sacrifício?</li>
+                  </ul>
+                  <h5>Abstenção das obras servis</h5>
+                  <ul>
+                    <li class="prayer">Tem-se ocupado, sem necessidade, de obras servis nos domingos e dias santos de guarda? Tem permitido ou obrigado outros a trabalharem? Por quanto tempo? Por que motivo?</li>
+                    <li class="prayer">Tem profanado os domingos e festas com divertimentos perniciosos ou excessos escandalosos?</li>
+                  </ul>
+
+                  <h4>Quarto Mandamento</h4>
+                  <h5>Deveres dos filhos — respeito</h5>
+                  <ul>
+                    <li class="prayer">Tem desprezado seus pais? Tem zombado deles? Tem falado mal deles? Tem tido vergonha deles? Tem-lhes respondido com soberba e arrogância? Tem-nos tratado com dureza?</li>
+                  </ul>
+                  <h5>Amor</h5>
+                  <ul>
+                    <li class="prayer">Tem-lhes desejado mal? Tem-lhes causado grandes aflições e desgostos?</li>
+                    <li class="prayer">Tem deixado de os socorrer nas suas necessidades? Tem-lhes exprobrado seus defeitos? Tem recusado suportá-los?</li>
+                  </ul>
+                  <h5>Obediência</h5>
+                  <ul>
+                    <li class="prayer">Tem negado obediência a seus pais em coisas importantes?</li>
+                    <li class="prayer">Tem resmungado contra suas ordens, disposições, ou contra os castigos que, com justo motivo, lhe deram?</li>
+                    <li class="prayer">Por pais se entendem aqui também os que fazem suas vezes, tais como os pais adotivos, tutores, padrinhos e madrinhas.</li>
+                  </ul>
+                  <h5>Obrigações recíprocas entre irmãos e irmãs</h5>
+                  <ul>
+                    <li class="prayer">Tem vivido durante muito tempo em desacordo ou inimizade com seus irmãos e irmãs? Tem-nos injuriado? Batido? Maltratado? Gravemente? Tem-lhes desejado mal? Tem-lhes dado mau exemplo?</li>
+                    <li class="prayer">Tem deixado de impedir suas faltas segundo suas forças e comunicando-as aos seus pais?</li>
+                  </ul>
+
+                  <h4>Quinto Mandamento</h4>
+                  <h5>Caridade para com o próximo — deveres quanto ao corpo</h5>
+                  <ul>
+                    <li class="prayer">Tem prejudicado a saúde do próximo? Por maus tratos? Causando-lhe grandes aflições por injustiças? Tem injuriado, insultado o próximo? Tem proferido maldições ou imprecações contra ele?</li>
+                    <li class="prayer">Tem tido disputas e rixas? Tem sido violento, irascível contra outrem?</li>
+                    <li class="prayer">Tem nutrido ódio ou inimizade em seu coração? Há quanto tempo?</li>
+                    <li class="prayer">Matou alguém? Desejando a morte? Aconselhando a outros que matassem? Ajudando em planos de morte?</li>
+                    <li class="prayer">Tem tido inveja? Tem-se alegrado com a desgraça alheia? Tem desejado mal ao próximo?</li>
+                  </ul>
+                  <h5>Deveres quanto à alma</h5>
+                  <ul>
+                    <li class="prayer">Tem aprovado ou louvado o mau procedimento dos outros? Tem levado o próximo a fazer mal? A que pecado?</li>
+                    <li class="prayer">Tem cooperado no pecado de outrem? Tem emprestado maus livros, levado a assistir a maus filmes, programas de TV ou internet, mostrado ou exposto imagens obscenas? Tem vendido maus livros ou imagens imorais?</li>
+                    <li class="prayer">Tem sido ocasião de pecado mortal para outros por más conversas, cantigas ruins, modas indecentes, gestos obscenos ou maus exemplos (escândalos)?</li>
+                    <li class="prayer">Tem impedido o pecado dos outros quando o via e podia?</li>
+                  </ul>
+                  <h5>A caridade para consigo mesmo</h5>
+                  <ul>
+                    <li class="prayer">Tem-se embebedado? Notavelmente? Tem prejudicado a sua saúde por uma intemperança prolongada ou de alguma outra maneira?</li>
+                    <li class="prayer">Tem desejado a morte a si próprio? Ou feito tentativas de suicídio?</li>
+                  </ul>
+
+                  <h4>Sexto e Nono Mandamentos</h4>
+                  <h5>Pensamentos e desejos</h5>
+                  <ul>
+                    <li class="prayer">Tem-se demorado voluntariamente em pensamentos e imaginações impuras?</li>
+                    <li class="prayer">Tem tido desejos culpáveis de ver, ouvir ou fazer coisas desonestas?</li>
+                    <li class="prayer">Tem-se deleitado na lembrança dos pecados impuros cometidos na sua vida passada?</li>
+                  </ul>
+                  <h5>Conversas</h5>
+                  <ul>
+                    <li class="prayer">Tem travado más conversas? Tem ouvido más conversas, ou as tem ocasionado? Com pessoas do mesmo ou do outro sexo? Na presença de crianças? Tem cantado cantigas desonestas?</li>
+                  </ul>
+                  <h5>Leituras</h5>
+                  <ul>
+                    <li class="prayer">Tem lido livros ou escritos imorais? Tem dado esses livros para outros lerem? Tem escrito ou desenhado coisas obscenas? Tem mostrado ou vendido escritos, quadros ou objetos obscenos? Tem-se informado em livros sobre matérias lúbricas com má intenção?</li>
+                  </ul>
+                  <h5>Vistas</h5>
+                  <ul>
+                    <li class="prayer">Tem olhado com malícia para coisas indecentes? Em seu corpo? Ou no corpo de outros? Em imagens, estátuas? Tem olhado para coisas desonestas com curiosidade?</li>
+                    <li class="prayer">Tem passado imagens ou quadros obscenos a outros? Tem faltado com modéstia, vestindo-se ou despindo-se em presença de outros? Tem dado escândalo pelo uso de roupas indecentes?</li>
+                  </ul>
+                  <h5>Ações</h5>
+                  <ul>
+                    <li class="prayer">Tem pecado por toques impuros? Por ações impuras? Só ou com outros? Tem sofrido tais coisas sem lhes opor uma resistência enérgica? Foi com pessoa do mesmo ou de outro sexo? Eram elas pessoas desimpedidas, casadas, parentes? Não tem a declarar circunstâncias agravantes ou circunstâncias especiais a respeito destas faltas? Tem levado outras pessoas a praticar atos impuros? Ou desejado fazê-los?</li>
+                  </ul>
+                  <h5>Ocasiões perigosas</h5>
+                  <ul>
+                    <li class="prayer">Tem assistido a representações teatrais imorais? Ou a sessões cinematográficas, de TV ou internet livre ou imoral? Tem convidado ou levado outras pessoas a tais representações? Tem frequentado más companhias, podendo evitá-las? Tem procurado outras ocasiões perigosas, sem desculpas nem razão? Mantém relações culposas pessoalmente ou por meio da internet? Há quanto tempo?</li>
+                  </ul>
+
+                  <h4>Sétimo e Décimo Mandamentos</h4>
+                  <h5>Furto e fraude</h5>
+                  <ul>
+                    <li class="prayer">Tem tirado alguma coisa de seus pais, patrões ou estranhos? Foi objeto de valor? Tem tirado coisas pequenas por muitas vezes?</li>
+                    <li class="prayer">Tem conscientemente aceitado, comprado ou vendido objetos injustamente adquiridos? Tem retido injustamente uma coisa achada?</li>
+                    <li class="prayer">Tem enganado o próximo? Em coisas importantes? Tem saldado suas dívidas no prazo marcado, podendo pagá-las?</li>
+                    <li class="prayer">Tem-se aproveitado da necessidade do próximo para se enriquecer? Tem usado peso e medidas falsos para enganar o próximo?</li>
+                    <li class="prayer">Tem tirado, guardado ou vendido injustamente bens da Igreja?</li>
+                  </ul>
+                  <h5>Danos injustos</h5>
+                  <ul>
+                    <li class="prayer">Tem feito mal o trabalho ao qual está obrigado?</li>
+                    <li class="prayer">Tem danificado notavelmente a propriedade alheia por malícia ou por negligência culpável? A propriedade era da Igreja? Tem dado conselho ou ordem para furtar, defraudar ou danificar bens do próximo? Eram bens da Igreja? Tem cooperado em tais injustiças? E como?</li>
+                    <li class="prayer">Tem deixado de restituir o bem adquirido injustamente, ou de reparar as suas injustiças, podendo fazê-lo?</li>
+                  </ul>
+                  <h5>Desejo de cometer injustiças</h5>
+                  <ul>
+                    <li class="prayer">Tem tido desejo de furtar, defraudar ou danificar a propriedade alheia? Por inveja, vingança ou por que motivo?</li>
+                  </ul>
+
+                  <h4>Oitavo Mandamento</h4>
+                  <h5>Indiscrições</h5>
+                  <ul>
+                    <li class="prayer">Tem violado segredos de importância? Segredos confiados? Tem aberto e lido cartas de outrem, sem para isso ter autorização? Causou com isso dano notável, discórdia ou graves desgostos?</li>
+                  </ul>
+                  <h5>Mentira</h5>
+                  <ul>
+                    <li class="prayer">Tem mentido? Causou isso graves prejuízos ao próximo? Tem-se tornado culpado de atos de duplicidade? Ou de hipocrisia?</li>
+                  </ul>
+                  <h5>Detração</h5>
+                  <ul>
+                    <li class="prayer">Tem tornado conhecidas, sem necessidade, as faltas e defeitos ocultos do próximo? Tem-lhe com isso causado dano material ou na boa reputação?</li>
+                    <li class="prayer">Tem-lhe atribuído falsamente certas faltas ou defeitos? Eram essas faltas ou defeitos desonrosos? Tem exagerado suas faltas ou defeitos reais?</li>
+                    <li class="prayer">Tem prejudicado a reputação dos superiores ou de uma família inteira?</li>
+                    <li class="prayer">Tem prejudicado a reputação dos sacerdotes ou pessoas consagradas a Deus?</li>
+                    <li class="prayer">Tem escutado com satisfação maledicências ou calúnias?</li>
+                    <li class="prayer">Tem provocado dissensões ou inimizades por mexericos? Tem injuriado, insultado o próximo? Superiores? Sacerdotes?</li>
+                    <li class="prayer">Tem levantado suspeitas graves de alguém sem motivo plausível?</li>
+                    <li class="prayer">Tem manifestado essas suspeitas? Tem feito juízos temerários?</li>
+                    <li class="prayer">Tem feito esforços para reparar, o melhor possível, o prejuízo ao próximo, na sua fortuna ou na sua boa reputação?</li>
+                  </ul>
+
+                  <h4>Mandamentos da Igreja</h4>
+                  <ol>
+                    <li class="prayer">Tem comido carne nos dias em que a Igreja o proíbe? Tem servido carne a sua família ou a hóspedes? Deu ordem para que tal se fizesse?</li>
+                    <li class="prayer">Tem-se dispensado, sem motivo justo, de todo ou em parte, da lei do jejum?</li>
+                    <li class="prayer">Tem deixado de receber a Comunhão Pascal?</li>
+                    <li class="prayer">Deixou de contribuir com suas esmolas para as obras pias recomendadas pelo Santo Padre e pelos Bispos? Nega suas esmolas aos necessitados?</li>
+                  </ol>
+
+                  <h4>Ato de contrição após a confissão</h4>
+                  <p class="prayer">
+                    Senhor meu Jesus Cristo, Deus e Homem, Vós quem sois, sumamente
+                    bom e digno de ser amado sobre todas as coisas, e porque Vos
+                    amo e estimo, pesa-me, Senhor, por Vos ter ofendido; pesa-me
+                    também por ter perdido o Céu e merecido o inferno. Mas proponho
+                    firmemente, com o auxílio de Vossa divina graça, e pela
+                    poderosa intercessão de vossa Mãe Santíssima, emendar-me e
+                    nunca mais Vos tornar a ofender. Espero alcançar o perdão de
+                    minhas culpas, por vossa infinita misericórdia. Amém.
+                  </p>
+
+                  <h4>Modo de fazer a confissão</h4>
+                  <p class="prayer instruction">Ao se apresentar ao confessor, dizer:</p>
+                  <p class="prayer">
+                    Abençoai-me, Padre, porque pequei. Eu, pecador, me confesso a
+                    Deus, e a Vós, Padre. Confessei-me faz (tantos dias, semanas
+                    ou meses). Meus pecados são os seguintes:
+                  </p>
+                  <p class="prayer instruction">
+                    Depois de ter acabado a confissão dos pecados pode-se acrescentar:
+                  </p>
+                  <p class="prayer">
+                    Destes e também de todos os pecados de minha vida passada, e
+                    esquecidos, me arrependo de todo o coração; de todos eles peço
+                    perdão a Deus, e a vós, Padre, a absolvição.
+                  </p>
+                  <p class="prayer instruction">
+                    Ouve, depois, com respeito e atenção os avisos do confessor.
+                  </p>
                 </div>
-                <p class="prayer">
-                  Alma Redemptóris Mater, quæ pérvia cæli porta manes, et stella
-                  maris, succúrre cadénti, súrgere qui curat, pópulo.
-                </p>
-                <p class="prayer">
-                  Tu quæ genuísti, natúra miránte, tuum sanctum Genitórem, Virgo
-                  prius ac postérius, Gabriélis ab ore sumens illud Ave,
-                  peccatórum miserére.
-                </p>
               </div>
-            </div>
-          </article>
-          <article
-            id="nossa-senhora-2"
-            data-search="Ave Regina caelorum Ave, Regína cælórum Quaresma No uso tradicional indicado pela fonte: de 2 de fevereiro até a Quarta-feira Santa; inclui parte do Tempo Comum anterior à Quaresma. Salve, Rainha dos céus; salve, Senhora dos anjos; salve, raiz, salve, porta, da qual nasceu para o mundo a luz.
-Alegrai-vos, Virgem gloriosa, bela acima de todas; nós vos saudamos, ó formosíssima, e pedi a Cristo por nós. Ave, Regína cælórum, ave, Dómina Angelórum, salve, radix, salve, porta, ex qua mundo lux est orta.
-Gaude, Virgo gloriósa, super omnes speciósa; vale, o valde decóra, et pro nobis Christum exóra. Tradução própria do texto latino tradicional."
-          >
-            <div class="prayer-head">
-              <h3>Ave Regina caelorum</h3>
-              <a
-                class="permalink"
-                href="#nossa-senhora-2"
-                aria-label="Link para Ave Regina caelorum"
-                >§</a
-              >
-            </div>
-            <p class="season">Quaresma</p>
-            <p class="season-note">
-              No uso tradicional indicado pela fonte: de 2 de fevereiro até a
-              Quarta-feira Santa; inclui parte do Tempo Comum anterior à
-              Quaresma.
-            </p>
-            <div class="parallel">
-              <div lang="pt-BR">
-                <div class="language">Português</div>
-                <p class="prayer">
-                  Salve, Rainha dos céus; salve, Senhora dos anjos; salve, raiz,
-                  salve, porta, da qual nasceu para o mundo a luz.
-                </p>
-                <p class="prayer">
-                  Alegrai-vos, Virgem gloriosa, bela acima de todas; nós vos
-                  saudamos, ó formosíssima, e pedi a Cristo por nós.
-                </p>
-              </div>
-              <div lang="la">
-                <div class="language">
-                  Latine · <span>Ave, Regína cælórum</span>
-                </div>
-                <p class="prayer">
-                  Ave, Regína cælórum, ave, Dómina Angelórum, salve, radix,
-                  salve, porta, ex qua mundo lux est orta.
-                </p>
-                <p class="prayer">
-                  Gaude, Virgo gloriósa, super omnes speciósa; vale, o valde
-                  decóra, et pro nobis Christum exóra.
-                </p>
-              </div>
-            </div>
-          </article>
-          <article
-            id="nossa-senhora-3"
-            data-search="Regina Caeli · Rainha do Céu Regína cæli Páscoa · Tempo Pascal Da Páscoa a Pentecostes. Substitui o Angelus durante o Tempo Pascal. A antífona é apresentada abaixo com o versículo e a oração usados nessa devoção. Rainha do Céu, alegrai-vos, aleluia.
-Porque aquele que merecestes trazer em vosso seio, aleluia,
-ressuscitou como disse, aleluia.
-Rogai a Deus por nós, aleluia.
-℣. Exultai e alegrai-vos, ó Virgem Maria, aleluia.
-℟. Porque o Senhor ressuscitou verdadeiramente, aleluia.
-Oremos. Ó Deus, que pela ressurreição do vosso Filho, nosso Senhor Jesus Cristo, alegrastes o mundo, concedei-nos, por sua Mãe, a Virgem Maria, alcançar as alegrias da vida eterna. Por Cristo, nosso Senhor. Amém. Regína cæli, lætáre, allelúia.
-Quia quem meruísti portáre, allelúia,
-resurréxit, sicut dixit, allelúia.
-Ora pro nobis Deum, allelúia.
-℣. Gaude et lætáre, Virgo María, allelúia.
-℟. Quia surréxit Dóminus vere, allelúia.
-Orémus. Deus, qui per resurrectiónem Fílii tui Dómini nostri Iesu Christi mundum lætificáre dignátus es, præsta, quǽsumus, ut per eius Genetrícem Vírginem Maríam perpétuæ capiámus gáudia vitæ. Per Christum Dóminum nostrum. Amen. Português com tradução própria da oração conclusiva."
-          >
-            <div class="prayer-head">
-              <h3>Regina Caeli · Rainha do Céu</h3>
-              <a
-                class="permalink"
-                href="#nossa-senhora-3"
-                aria-label="Link para Regina Caeli · Rainha do Céu"
-                >§</a
-              >
-            </div>
-            <p class="season">Páscoa · Tempo Pascal</p>
-            <p class="season-note">
-              Da Páscoa a Pentecostes. Substitui o Angelus durante o Tempo
-              Pascal. A antífona é apresentada abaixo com o versículo e a oração
-              usados nessa devoção.
-            </p>
-            <div class="parallel">
-              <div lang="pt-BR">
-                <div class="language">Português</div>
-                <p class="prayer">Rainha do Céu, alegrai-vos, aleluia.</p>
-                <p class="prayer">
-                  Porque aquele que merecestes trazer em vosso seio, aleluia,
-                </p>
-                <p class="prayer">ressuscitou como disse, aleluia.</p>
-                <p class="prayer">Rogai a Deus por nós, aleluia.</p>
-                <p class="prayer">
-                  ℣. Exultai e alegrai-vos, ó Virgem Maria, aleluia.
-                </p>
-                <p class="prayer">
-                  ℟. Porque o Senhor ressuscitou verdadeiramente, aleluia.
-                </p>
-                <p class="prayer">
-                  Oremos. Ó Deus, que pela ressurreição do vosso Filho, nosso
-                  Senhor Jesus Cristo, alegrastes o mundo, concedei-nos, por sua
-                  Mãe, a Virgem Maria, alcançar as alegrias da vida eterna. Por
-                  Cristo, nosso Senhor. Amém.
-                </p>
-              </div>
-              <div lang="la">
-                <div class="language">Latine · <span>Regína cæli</span></div>
-                <p class="prayer">Regína cæli, lætáre, allelúia.</p>
-                <p class="prayer">Quia quem meruísti portáre, allelúia,</p>
-                <p class="prayer">resurréxit, sicut dixit, allelúia.</p>
-                <p class="prayer">Ora pro nobis Deum, allelúia.</p>
-                <p class="prayer">℣. Gaude et lætáre, Virgo María, allelúia.</p>
-                <p class="prayer">℟. Quia surréxit Dóminus vere, allelúia.</p>
-                <p class="prayer">
-                  Orémus. Deus, qui per resurrectiónem Fílii tui Dómini nostri
-                  Iesu Christi mundum lætificáre dignátus es, præsta, quǽsumus,
-                  ut per eius Genetrícem Vírginem Maríam perpétuæ capiámus
-                  gáudia vitæ. Per Christum Dóminum nostrum. Amen.
-                </p>
-              </div>
-            </div>
-          </article>
-          <article
-            id="nossa-senhora-4"
-            data-search="Salve Rainha Salve, Regína Tempo Comum Especialmente no Tempo Comum após Pentecostes e até o Advento. Pode também ser rezada em outras ocasiões de devoção mariana. Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve!
-A vós bradamos, os degredados filhos de Eva; a vós suspiramos, gemendo e chorando neste vale de lágrimas.
-Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei; e, depois deste desterro, mostrai-nos Jesus, bendito fruto do vosso ventre.
-Ó clemente, ó piedosa, ó doce sempre Virgem Maria! Salve, Regína, Mater misericórdiæ, vita, dulcédo et spes nostra, salve.
-Ad te clamámus, éxsules fílii Hevæ. Ad te suspirámus geméntes et flentes in hac lacrimárum valle.
-Éia ergo, advocáta nostra, illos tuos misericórdes óculos ad nos convérte. Et Iesum benedíctum fructum ventris tui, nobis, post hoc exsílium, osténde.
-O clemens, o pia, o dulcis Virgo María! Fórmula tradicional; texto da antífona."
-          >
-            <div class="prayer-head">
-              <h3>Salve Rainha</h3>
-              <a
-                class="permalink"
-                href="#nossa-senhora-4"
-                aria-label="Link para Salve Rainha"
-                >§</a
-              >
-            </div>
-            <p class="season">Tempo Comum</p>
-            <p class="season-note">
-              Especialmente no Tempo Comum após Pentecostes e até o Advento.
-              Pode também ser rezada em outras ocasiões de devoção mariana.
-            </p>
-            <div class="parallel">
-              <div lang="pt-BR">
-                <div class="language">Português</div>
-                <p class="prayer">
-                  Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança
-                  nossa, salve!
-                </p>
-                <p class="prayer">
-                  A vós bradamos, os degredados filhos de Eva; a vós suspiramos,
-                  gemendo e chorando neste vale de lágrimas.
-                </p>
-                <p class="prayer">
-                  Eia, pois, advogada nossa, esses vossos olhos misericordiosos
-                  a nós volvei; e, depois deste desterro, mostrai-nos Jesus,
-                  bendito fruto do vosso ventre.
-                </p>
-                <p class="prayer">
-                  Ó clemente, ó piedosa, ó doce sempre Virgem Maria!
-                </p>
-              </div>
-              <div lang="la">
-                <div class="language">Latine · <span>Salve, Regína</span></div>
-                <p class="prayer">
-                  Salve, Regína, Mater misericórdiæ, vita, dulcédo et spes
-                  nostra, salve.
-                </p>
-                <p class="prayer">
-                  Ad te clamámus, éxsules fílii Hevæ. Ad te suspirámus geméntes
-                  et flentes in hac lacrimárum valle.
-                </p>
-                <p class="prayer">
-                  Éia ergo, advocáta nostra, illos tuos misericórdes óculos ad
-                  nos convérte. Et Iesum benedíctum fructum ventris tui, nobis,
-                  post hoc exsílium, osténde.
-                </p>
-                <p class="prayer">O clemens, o pia, o dulcis Virgo María!</p>
-              </div>
-            </div>
-          </article>
-          <article
-            id="nossa-senhora-5"
-            data-search="Memorare · Lembrai-vos Memoráre Todo o ano Oração de confiança na intercessão de Nossa Senhora, sem período litúrgico exclusivo. Lembrai-vos, ó piíssima Virgem Maria, de que nunca se ouviu dizer que algum daqueles que tenha recorrido à vossa clemência, implorado a vossa assistência, reclamando o vosso socorro, fosse por vós abandonado.
-Animado eu, pois, com igual confiança, a vós, Virgem das virgens, como Mãe, recorro, de vós me valho e gemendo sob o peso de meus pecados, me prostro aos vossos pés.
-Não desprezeis as minhas súplicas, ó mãe do Verbo de Deus humanado, mas dignai-vos de as ouvir propícia e de me alcançar o que vos rogo. Amém. Memoráre, o piíssima Virgo María, non esse audítum a sǽculo, quemquam ad tua curréntem præsídia, tua implorántem auxília, tua peténtem suffrágia, esse derelíctum.
-Ego tali animátus confidéntia, ad te, Virgo Vírginum, Mater, curro, ad te vénio, coram te gemens peccátor assísto.
-Noli, Mater Verbi, verba mea despícere; sed áudi propítia et exáudi. Amen. Tradução própria do texto latino tradicional."
-          >
-            <div class="prayer-head">
-              <h3>Memorare · Lembrai-vos</h3>
-              <a
-                class="permalink"
-                href="#nossa-senhora-5"
-                aria-label="Link para Memorare · Lembrai-vos"
-                >§</a
-              >
-            </div>
-            <p class="season">Todo o ano</p>
-            <p class="season-note">
-              Oração de confiança na intercessão de Nossa Senhora, sem período
-              litúrgico exclusivo.
-            </p>
-            <div class="parallel">
-              <div lang="pt-BR">
-                <div class="language">Português</div>
-                <p class="prayer">
-                  Lembrai-vos, ó piíssima Virgem Maria, de que nunca se ouviu
-                  dizer que algum daqueles que tenha recorrido à vossa
-                  clemência, implorado a vossa assistência, reclamando o vosso
-                  socorro, fosse por vós abandonado.
-                </p>
-                <p class="prayer">
-                  Animado eu, pois, com igual confiança, a vós, Virgem das
-                  virgens, como Mãe, recorro, de vós me valho e gemendo sob o
-                  peso de meus pecados, me prostro aos vossos pés.
-                </p>
-                <p class="prayer">
-                  Não desprezeis as minhas súplicas, ó mãe do Verbo de Deus
-                  humanado, mas dignai-vos de as ouvir propícia e de me alcançar
-                  o que vos rogo. Amém.
-                </p>
-              </div>
-              <div lang="la">
-                <div class="language">Latine · <span>Memoráre</span></div>
-                <p class="prayer">
-                  Memoráre, o piíssima Virgo María, non esse audítum a sǽculo,
-                  quemquam ad tua curréntem præsídia, tua implorántem auxília,
-                  tua peténtem suffrágia, esse derelíctum.
-                </p>
-                <p class="prayer">
-                  Ego tali animátus confidéntia, ad te, Virgo Vírginum, Mater,
-                  curro, ad te vénio, coram te gemens peccátor assísto.
-                </p>
-                <p class="prayer">
-                  Noli, Mater Verbi, verba mea despícere; sed áudi propítia et
-                  exáudi. Amen.
-                </p>
-              </div>
-            </div>
-          </article>
+            </article>
+          </details>
         </section>
         <footer>
           <h2>Fontes e edição</h2>
@@ -3977,9 +4270,18 @@ Noli, Mater Verbi, verba mea despícere; sed áudi propítia et exáudi. Amen. T
       mobileIndexToggle.addEventListener("click", () => setMobileIndex(true));
       mobileIndexClose.addEventListener("click", () => setMobileIndex(false));
       mobileIndexBackdrop.addEventListener("click", () => setMobileIndex(false));
-      mobileIndex.querySelectorAll("nav a").forEach((link) =>
+      mobileIndex.querySelectorAll("nav a, .home-link").forEach((link) =>
         link.addEventListener("click", () => setMobileIndex(false, false)),
       );
+
+      function revealHashTarget() {
+        const id = decodeURIComponent(window.location.hash.slice(1));
+        if (!id) return;
+        const details = document.getElementById(id)?.closest("details");
+        if (details) details.open = true;
+      }
+      window.addEventListener("hashchange", revealHashTarget);
+      revealHashTarget();
 
       let secretPrayerClicks = [];
       secretPrayerTrigger.addEventListener("click", () => {
